@@ -82,10 +82,10 @@ ccv_swt_param_t &initSWTParams(ccv_swt_param_t &swt_params) {
      thickness_ratio: The allowable thickness variance when grouping letter
      */
     swt_params.distance_ratio = 3.5;
-    swt_params.elongate_ratio = 3.5; // not completely clear what this parameter does, perhaps separate horizontal and vertical disstance
+    swt_params.elongate_ratio = 3.5; // ratio of width and height of text string
     swt_params.height_ratio = 2;
-    swt_params.intensity_thresh = 100; // not that clear what it does
-    swt_params.intersect_ratio = 2.4; // not that clear what it does
+    swt_params.intensity_thresh = 100;
+    swt_params.intersect_ratio = 2.4;  
     swt_params.thickness_ratio = 1.3;
     swt_params.letter_thresh = 4;
     swt_params.letter_occlude_thresh = 2;
