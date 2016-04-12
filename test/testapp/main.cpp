@@ -2,6 +2,7 @@
 #include <fstream>
 
 
+
 extern "C"
 {
   #include "ccv.h"
@@ -22,6 +23,8 @@ int main(int argc, char ** argv) {
 
     ccv_swt_param_t swt_params;
     swt_params = initSWTParams(swt_params);
+    swt_params.scale_invariant = 0;
+    //swt_params = ccv_swt_default_params;
     bool printInfo = true;
 
 
@@ -91,12 +94,18 @@ ccv_swt_param_t &initSWTParams(ccv_swt_param_t &swt_params) {
     swt_params.letter_occlude_thresh = 2;
 
     swt_params.breakdown = 0;
+    //swt_params.breakdown_ratio = 0;
 
     // * parameters below that line had not been initialized before valgrind issue was found
     swt_params.scale_invariant = 1;
-    swt_params.interval = 7;
+    swt_params.interval = 7; //7
     swt_params.same_word_thresh[0] = 0.000000000000000000001;
     swt_params.same_word_thresh[1] = 0.000000000000000000001;
+
+    // Just as in default
+    //swt_params.same_word_thresh[0] = 0.1;
+    //swt_params.same_word_thresh[1] = 0.8;
+
     swt_params.min_neighbors = 0;
 
     return swt_params;
